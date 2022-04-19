@@ -31,6 +31,8 @@ android {
             debuggable true
             signingConfig signingConfigs.platform
             minifyEnabled false
+            shrinkResources true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -55,6 +57,14 @@ android {
         disable 'UnsafeProtectedBroadcastReceiver'
         disable 'AppCompatCustomView'
     }
+    dependenciesInfo {
+        includeInApk false
+    }
+    packagingOptions {
+        resources {
+            excludes += '**'
+        }
+    }
 }
 
 def androidPath = "${rootDir}/../../../"
@@ -67,7 +77,7 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.dagger:hilt-android:2.40.5'
