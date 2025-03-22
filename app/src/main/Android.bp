@@ -28,6 +28,9 @@ android_app {
         "hilt_android",
         "komodo-preference",
     ],
+    libs: [
+        "org.lineageos.platform"
+    ],
     kotlincflags: [
         "-opt-in=kotlin.Experimental",
         "-opt-in=kotlin.ExperimentalStdlibApi",
